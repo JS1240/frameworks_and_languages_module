@@ -54,7 +54,7 @@ ROOT_URLCONF = 'server.urls'
 
 TEMPLATES = [
     {
-        #'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             #os.path.join(BASE_DIR, 'reactapp/build'),
         ],
