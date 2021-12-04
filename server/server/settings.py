@@ -54,7 +54,7 @@ ROOT_URLCONF = 'server.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        #'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             #os.path.join(BASE_DIR, 'reactapp/build'),
         ],
@@ -131,3 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     #os.path.join(BASE_DIR, 'reactapp/build/static'),
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
