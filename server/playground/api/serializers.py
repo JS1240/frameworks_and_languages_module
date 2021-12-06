@@ -5,4 +5,4 @@ from items.models import Item
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model =Item
-        fields = ('user_id', 'keywords', 'description', 'image')
+        fields = ('id', 'keywords', 'description', 'image', 'lat', 'lon', 'date_from', 'date_to')
