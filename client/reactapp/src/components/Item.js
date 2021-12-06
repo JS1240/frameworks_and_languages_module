@@ -1,20 +1,6 @@
-import REact from 'react';
+import React from 'react';
 import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-
-
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: 'https://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://joeschmoe.io/api/v1/random',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-}
 
 const IconText = ({ icon, text }) => (
   <Space>
@@ -24,7 +10,7 @@ const IconText = ({ icon, text }) => (
 );
 
 
-const Item = (props) => {
+const Items = (props) => {
     return (
         <List
             itemLayout="vertical"
@@ -35,32 +21,27 @@ const Item = (props) => {
             },
             pageSize: 3,
             }}
-            dataSource={listData}
-            footer={
-            <div>
-                <b>ant design</b> footer part
-            </div>
-            }
+            dataSource={props.data}
             renderItem={item => (
             <List.Item
                 key={item.title}
-                actions={[
-                <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                ]}
                 extra={
                 <img
                     width={272}
                     alt="logo"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                    src="https://placekitten.com/200/300"
                 />
                 }
             >
                 <List.Item.Meta
                 avatar={<Avatar src={item.avatar} />}
-                title={<a href={item.href}>{item.title}</a>}
+                title={<a href={`/${item.href}`}>{item.title}</a>}
+                keywords={item.keywords}
                 description={item.description}
+                lat={item.lat}
+                lon={item.lon}
+                date_from={item.date_from}
+                date_to={item.date_to}
                 />
                 {item.content}
             </List.Item>
@@ -69,4 +50,4 @@ const Item = (props) => {
             )
 }
 
-export default Item;
+export default Items;
