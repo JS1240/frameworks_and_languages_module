@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 
-from items.models import Item
+from playground.models import Item
 from.serializers import ItemSerializer
 
 

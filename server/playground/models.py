@@ -8,10 +8,10 @@ class Item(models.Model):
     keywords = models.CharField(max_length=120)
     description = models.CharField(max_length=250)
     image = models.URLField('https://placekitten.com/200/300')
-    lat = models.latitude()
-    lon = models.longitude()
-    date_from = models.DateTimeField()
-    date_to = models.DateTimeField()
+    #lat = models.latitude(data.lat)
+    #lon = models.longitude(data.lon)
+    date_from = models.DateTimeField('date published')
+    date_to = models.DateTimeField('date available to')
 
     def _str_(self):
         return self.user_id
