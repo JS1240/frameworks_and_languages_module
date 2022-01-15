@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from playground import views
 from django.views.generic import TemplateView
+from rest_framework.urlpatterns import format_suffix_patterns
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('playground/', include('playground.urls')),
-    path('', TemplateView.as_view(template_name='index.html')),
-    #path('', ('location.urls')),
-]
+    path('playground/items', views.List_Search_Items.as_view()),
+    path('playground/item/<int:id>', views.GetItem.as_views()),
+    path('playground/create/', views.CreateItem.as_view()),
+
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = format_suffix_patterns(urlpatterns)
