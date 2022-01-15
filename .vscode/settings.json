@@ -8,5 +8,6 @@
         "pylint_django"
     ],
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "python.venvPath": "${workspaceFolder}/server/env/bin/python3"
 }
