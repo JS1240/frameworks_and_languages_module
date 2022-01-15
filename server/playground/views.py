@@ -1,26 +1,25 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import JsonResponse
+from rest_framework import generics
+from rest_framework import filters
+from playground.serializer import ItemSerializer
+from .models import Item
 
-ITEMS = {
-    1: {
-        "id": 1,
-        "user_id": "user1234",
-        "keywords": ["hammer", "nails", "tools"],
-        "description": "A hammer and nails set",
-        "lat": 1,
-        "lon": 1,
-        "date_from": "2021-11-22T08:22:39.067408",
-    }
-}
+# Creating the views
 
-# Request handler
-# request -> response
 
-def say_hello(request):
-    # We can pull data from db, send emails, transform data
-    #return HttpResponse('Hello World')
-    response = JsonResponse({'foo': 'bar'})
-    response.status_code = 201
-    response.headers['Test'] = 120
-    return response
+class List_Search_Items(generics.ListAPIView):
+    search_fields = ['keywords']
+    filter_backends = (filters.SearchFilter,)
+    queryset = Item.objects.all().orderby('id').reverse()
+    serializer_class = ItemSerializer
+
+
+class GetItem(generics.RetrieveUpdateAPIView):
+    queryset = Item.objects.all()
+    lookup_url_kwarg = 'id'
+    serializer_class = ItemSerializer
+
+
+class CreateItem(generics.CreateAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
