@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('playground/items', views.List_Search_Items.as_view()),
-    path('playground/item/<int:id>', views.GetItem.as_views()),
+    path('playground/item/<int:id>', views.GetItem.as_view()),
     path('playground/create/', views.CreateItem.as_view()),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

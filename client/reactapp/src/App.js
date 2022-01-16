@@ -19,7 +19,7 @@ function App() {
   const [id, setId] = useState(0)
   async function getAllItems(){
     try{
-      const items = await axios.get("http://127.0.0.1:8000/api/items/")
+      const items = await axios.get("http://127.0.0.1:8000/server/items/")
       console.log(items.data)
       setData(items.data)
     }
@@ -43,13 +43,13 @@ function App() {
     data.append('user_id',user_id)
     data.append('description',description)
     data.append('keywords',keywords.split(","))
-    if(image != "" || image !=null){
+    if(image !== "" || image !=null){
       data.append('image',image)
     }
     data.append('lat',lat)
     data.append('lon',lon)
     console.log(image)
-    axios.post('http://127.0.0.1:8000/api/create/',data,config
+    axios.post('http://127.0.0.1:8000/server/create/',data,config
     ).then((res) => {
       console.log("RESPONSE RECEIVED: ", res);
       getAllItems()
@@ -84,7 +84,7 @@ function App() {
     data.append('lat',lat)
     data.append('lon',lon)
     console.log(image)
-    axios.put('http://127.0.0.1:8000/api/item/'+id,data,config
+    axios.put('http://127.0.0.1:8000/server/item/'+id,data,config
     ).then((res) => {
       console.log("RESPONSE RECEIVED: ", res);
       getAllItems()
@@ -94,7 +94,7 @@ function App() {
     })
   }
   const deleteItem= (ids) => {
-    axios.delete('http://127.0.0.1:8000/api/item/'+ids
+    axios.delete('http://127.0.0.1:8000/server/item/'+ids
     ).then((res) => {
       console.log("RESPONSE RECEIVED: ", res);
       getAllItems()
@@ -106,7 +106,7 @@ function App() {
   
   return (
     <div className="container px-0">
-      <h1 className="bg-danger py-3 mt-3 mx-0 text-center">React Crud App</h1>
+      <h1 className="bg-danger py-3 mt-3 mx-0 text-center">React App</h1>
       <div className="row">
         <div className="col-md-4 ">
           <Form >

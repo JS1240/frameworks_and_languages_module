@@ -10,7 +10,7 @@ from .models import Item
 class List_Search_Items(generics.ListAPIView):
     search_fields = ['keywords']
     filter_backends = (filters.SearchFilter,)
-    queryset = Item.objects.all().orderby('id').reverse()
+    queryset = Item.objects.all().order_by('id').reverse()
     serializer_class = ItemSerializer
 
 

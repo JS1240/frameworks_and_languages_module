@@ -10,7 +10,7 @@ from django.contrib.postgres.fields import ArrayField
 class Item(models.Model):
     user_id = models.CharField(max_length=120)
     keywords = models.CharField(max_length=120)
-    description = models.CharField()
+    description = models.CharField(max_length=200)
     image = models.CharField(max_length=500, blank=True,
                              null=True, default="https://placekitten.com/200/300")
     lat = models.DecimalField(max_digits=12, decimal_places=9)
