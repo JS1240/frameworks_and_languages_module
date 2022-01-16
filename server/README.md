@@ -13,6 +13,12 @@ The project is currently under development in the server side but the client sid
 Installation and Setup Instructions
 ======
 
+Existing virtualenv
+======
+If your project is already in an existing python3 virtualenv first install django by running
+
+$ pip install django
+
 Getting Started
 ======
 First clone the repository from Github and switch to the new directory:
@@ -34,7 +40,7 @@ You can now run the development server:
 
 $ python manage.py runserver
 
-
+======
 
 This was a two and half months long project built during my third year at Canterbury Christ Church University of Frameworks and Languages. Project goals included using technologies learned up until this point that we chose in the assessment one and familiarizing myself with the documentation and functionalities of the framework.
 
