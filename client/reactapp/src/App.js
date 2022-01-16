@@ -19,7 +19,7 @@ function App() {
   const [id, setId] = useState(0)
   async function getAllItems(){
     try{
-      const items = await axios.get("http://127.0.0.1:8000/server/items/")
+      const items = await axios.get("http://127.0.0.1:8000/FRAMEWORKS_AND_LANGUAGES_MODULE/items/")
       console.log(items.data)
       setData(items.data)
     }
@@ -49,7 +49,7 @@ function App() {
     data.append('lat',lat)
     data.append('lon',lon)
     console.log(image)
-    axios.post('http://127.0.0.1:8000/server/create/',data,config
+    axios.post('http://127.0.0.1:8000/FRAMEWORKS_AND_LANGUAGES_MODULE/create/',data,config
     ).then((res) => {
       console.log("RESPONSE RECEIVED: ", res);
       getAllItems()
@@ -84,7 +84,7 @@ function App() {
     data.append('lat',lat)
     data.append('lon',lon)
     console.log(image)
-    axios.put('http://127.0.0.1:8000/server/item/'+id,data,config
+    axios.put('http://127.0.0.1:8000/FRAMEWORKS_AND_LANGUAGES_MODULE/item/'+id,data,config
     ).then((res) => {
       console.log("RESPONSE RECEIVED: ", res);
       getAllItems()
@@ -94,7 +94,7 @@ function App() {
     })
   }
   const deleteItem= (ids) => {
-    axios.delete('http://127.0.0.1:8000/server/item/'+ids
+    axios.delete('http://127.0.0.1:8000/FRAMEWORKS_AND_LANGUAGES_MODULE/item/'+ids
     ).then((res) => {
       console.log("RESPONSE RECEIVED: ", res);
       getAllItems()
