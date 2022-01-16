@@ -36,4 +36,4 @@ We had to build a web application which would take inputs from the user for the 
 
 During this period it was really difficult for me to finish the project as there are all restrictions with COVID-19 it was hard to go and visit my family. Also, a family member had died which took me some time to mourn. There were also some other less important risks which held me from finishing this project as my laptop was stolen and I had to find another job.
 
-At the end of the day, the technologies that I implemented in this project were interesting to use and I am looking forward to use React in future.
+At the end of the day, the technologies that I implemented in this project were interesting to use and I am looking forward to use React and Django in future.
